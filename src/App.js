@@ -16,6 +16,7 @@ function App() {
  const[Volume,setVolume]=useState(20);
  const[TooLoud,setTooLoud]=useState(false);
  const[quality,setQuality]=useState(["High"])
+ const qual=["High","Medium","Low"]
 
 useEffect(() => {
   console.log(isToggled)
@@ -93,6 +94,7 @@ const changeQuality=(qual)=>{
       state={quality} 
       setState={setQuality}
       stateChange={changeQuality}
+      option={qual}
       title="Sound Quality" 
       body="Manually control the music quality in event of poor connection"
       />
@@ -104,6 +106,9 @@ const changeQuality=(qual)=>{
         <span>Your application is offline. You won't be able to share or stream music to other devices.</span>
       )}<br/>
        {TooLoud&& <span>Listening to music at a high volume could cause long-term hearing loss.</span>}
+       <br/>
+       {quality==="Low"&&<span>Music quality is degraded. Increase quality if your connection allows it.
+</span> }
         {/* this is where notifications will go */}
       </div>
     )

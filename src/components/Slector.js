@@ -11,7 +11,8 @@ import { Select } from '@mui/material';
 
 
 export default function Selector(props) {
-const {title ,body ,state ,setState ,stateChange}=props //need to add another prop
+const {title ,body ,state ,setState ,stateChange,option}=props
+console.log(state) //need to add another prop
   return (
     <Card sx={{ maxWidth: 300,height:250 }}>
       <CardContent>
@@ -25,10 +26,10 @@ const {title ,body ,state ,setState ,stateChange}=props //need to add another pr
         </div>
       </CardContent>
       <CardActions>
-      <Select  defaultValue={state}   label="Quality"  onChange={(event)=>setState(stateChange(event))}>
-        <option value={"High"}>High</option>
-        <option value={"Medium"}>Medium</option>
-        <option value={"Low"}>Low</option>
+      <Select  value="High"  onChange={(value)=>setState(stateChange(value))}>
+        <option value="High">High</option>
+        <option value="Medium">Medium</option>
+        <option value="Low">Low</option>
       </Select>
       </CardActions>
     </Card>
